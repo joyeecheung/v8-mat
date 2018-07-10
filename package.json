@@ -1,0 +1,19 @@
+{
+  "name": "v8-mat",
+  "version": "1.0.0",
+  "description": "Eclipse Memory Analyzer port for V8 heap snapshots",
+  "main": "index.js",
+  "scripts": {
+    "test": "echo \"Error: no test specified\" && exit 1"
+  },
+  "repository": {
+    "type": "git",
+    "url": "git+https://github.com/joyeecheung/v8-mat.git"
+  },
+  "author": "Joyee Cheung <joyeec9h3@gmail.com>",
+  "license": "MIT",
+  "bugs": {
+    "url": "https://github.com/joyeecheung/v8-mat/issues"
+  },
+  "homepage": "https://github.com/joyeecheung/v8-mat#readme"
+}
