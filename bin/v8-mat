@@ -11,16 +11,49 @@ if (!file) {
   process.exit(1);
 }
 
+function toStderr(...args) {
+  console.error(...args);
+}
+
+function toStdout(...args) {
+  console.log(...args);
+}
+
+const noop = () => {};
+
+function displayNode(node) {
+  console.log('Name         :', node.name());
+  console.log('Class Name   :', node.className());
+  console.log('Edges Count  :', node.edgesCount());
+  console.log('Retained Size:', node.retainedSize());
+  console.log('Self Size    :', node.selfSize());
+  console.log('ID           :', node.id());
+}
+
 function showResults(analyzer) {
   const snapshot = analyzer.snapshot;
   console.log('Total Heap Size: ', snapshot.totalSize);
   const suspects = analyzer.analyze();
-  console.log(suspects);
+  for (const record of suspects) {
+    const { suspect, accumulationPoint } = record;
+    console.log(`=============== Suspect ========`);
+    displayNode(suspect);
+    if (accumulationPoint !== null) {
+      console.log(`=============== Accumulation Point ========`);
+      displayNode(accumulationPoint.object);
+      console.log(`=============== Retaining Path ========`);
+      record.setLog(toStdout);
+      const leakPath = record.getPath();
+      record.setLog(noop);
+    } else {
+      console.log(`No accumulation point`);
+    }
+  }
 }
 
 const stream = fs.createReadStream(file).setEncoding('utf8');
 const analyzer = new HeapSnapshotAnalyzer();
-analyzer.loadStream(stream, (...args) => console.error(args))
+analyzer.loadStream(stream, toStderr)
   .then(() => {
     showResults(analyzer);
   }, (err) => {
