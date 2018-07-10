@@ -1,0 +1,337 @@
+[
+  {
+    "current": 21,
+    "path": [
+      {
+        "node": {
+          "nodeIndex": 3294,
+          "name": "system / Context",
+          "className": "system / Context",
+          "edgesCount": 41,
+          "retainedSize": 1298273108,
+          "selfSize": 368,
+          "id": 1099
+        },
+        "edge": {
+          "edgeIndex": 24894,
+          "string": "->refedLists"
+        }
+      },
+      {
+        "node": {
+          "nodeIndex": 188592,
+          "name": "Object",
+          "className": "Object",
+          "edgesCount": 6,
+          "retainedSize": 1298252896,
+          "selfSize": 24,
+          "id": 62865
+        },
+        "edge": {
+          "edgeIndex": 395196,
+          "string": "[1]"
+        }
+      },
+      {
+        "node": {
+          "nodeIndex": 185640,
+          "name": "TimersList",
+          "className": "TimersList",
+          "edgesCount": 6,
+          "retainedSize": 1298251224,
+          "selfSize": 128,
+          "id": 61881
+        },
+        "edge": {
+          "edgeIndex": 388089,
+          "string": "._idleNext"
+        }
+      },
+      {
+        "node": {
+          "nodeIndex": 185604,
+          "name": "Timeout",
+          "className": "Timeout",
+          "edgesCount": 10,
+          "retainedSize": 1298250792,
+          "selfSize": 176,
+          "id": 61869
+        },
+        "edge": {
+          "edgeIndex": 388038,
+          "string": "._onTimeout"
+        }
+      },
+      {
+        "node": {
+          "nodeIndex": 185586,
+          "name": "replaceThing",
+          "className": "(closure)",
+          "edgesCount": 6,
+          "retainedSize": 1298249240,
+          "selfSize": 64,
+          "id": 61863
+        },
+        "edge": {
+          "edgeIndex": 388005,
+          "string": "{context}"
+        }
+      },
+      {
+        "node": {
+          "nodeIndex": 185580,
+          "name": "system / Context",
+          "className": "system / Context",
+          "edgesCount": 5,
+          "retainedSize": 1298244504,
+          "selfSize": 56,
+          "id": 61861
+        },
+        "edge": {
+          "edgeIndex": 387981,
+          "string": "->theThing"
+        }
+      },
+      {
+        "node": {
+          "nodeIndex": 210840,
+          "name": "Object",
+          "className": "Object",
+          "edgesCount": 4,
+          "retainedSize": 1298238832,
+          "selfSize": 40,
+          "id": 70281
+        },
+        "edge": {
+          "edgeIndex": 452046,
+          "string": ".someMethod"
+        }
+      },
+      {
+        "node": {
+          "nodeIndex": 210852,
+          "name": "someMethod",
+          "className": "(closure)",
+          "edgesCount": 6,
+          "retainedSize": 1297238768,
+          "selfSize": 64,
+          "id": 70285
+        },
+        "edge": {
+          "edgeIndex": 452067,
+          "string": "{context}"
+        }
+      },
+      {
+        "node": {
+          "nodeIndex": 210858,
+          "name": "system / Context",
+          "className": "system / Context",
+          "edgesCount": 5,
+          "retainedSize": 1297238704,
+          "selfSize": 56,
+          "id": 70287
+        },
+        "edge": {
+          "edgeIndex": 452076,
+          "string": "->originalThing"
+        }
+      },
+      {
+        "node": {
+          "nodeIndex": 213084,
+          "name": "Object",
+          "className": "Object",
+          "edgesCount": 4,
+          "retainedSize": 1297238648,
+          "selfSize": 40,
+          "id": 71029
+        },
+        "edge": {
+          "edgeIndex": 457509,
+          "string": ".someMethod"
+        }
+      },
+      {
+        "node": {
+          "nodeIndex": 213096,
+          "name": "someMethod",
+          "className": "(closure)",
+          "edgesCount": 6,
+          "retainedSize": 1296238584,
+          "selfSize": 64,
+          "id": 71033
+        },
+        "edge": {
+          "edgeIndex": 457530,
+          "string": "{context}"
+        }
+      },
+      {
+        "node": {
+          "nodeIndex": 213078,
+          "name": "system / Context",
+          "className": "system / Context",
+          "edgesCount": 5,
+          "retainedSize": 1296238520,
+          "selfSize": 56,
+          "id": 71027
+        },
+        "edge": {
+          "edgeIndex": 457491,
+          "string": "->originalThing"
+        }
+      },
+      {
+        "node": {
+          "nodeIndex": 213060,
+          "name": "Object",
+          "className": "Object",
+          "edgesCount": 4,
+          "retainedSize": 1296238464,
+          "selfSize": 40,
+          "id": 71021
+        },
+        "edge": {
+          "edgeIndex": 457461,
+          "string": ".someMethod"
+        }
+      },
+      {
+        "node": {
+          "nodeIndex": 213072,
+          "name": "someMethod",
+          "className": "(closure)",
+          "edgesCount": 6,
+          "retainedSize": 1295238400,
+          "selfSize": 64,
+          "id": 71025
+        },
+        "edge": {
+          "edgeIndex": 457482,
+          "string": "{context}"
+        }
+      },
+      {
+        "node": {
+          "nodeIndex": 213054,
+          "name": "system / Context",
+          "className": "system / Context",
+          "edgesCount": 5,
+          "retainedSize": 1295238336,
+          "selfSize": 56,
+          "id": 71019
+        },
+        "edge": {
+          "edgeIndex": 457443,
+          "string": "->originalThing"
+        }
+      },
+      {
+        "node": {
+          "nodeIndex": 213036,
+          "name": "Object",
+          "className": "Object",
+          "edgesCount": 4,
+          "retainedSize": 1295238280,
+          "selfSize": 40,
+          "id": 71013
+        },
+        "edge": {
+          "edgeIndex": 457413,
+          "string": ".someMethod"
+        }
+      },
+      {
+        "node": {
+          "nodeIndex": 213048,
+          "name": "someMethod",
+          "className": "(closure)",
+          "edgesCount": 6,
+          "retainedSize": 1294238216,
+          "selfSize": 64,
+          "id": 71017
+        },
+        "edge": {
+          "edgeIndex": 457434,
+          "string": "{context}"
+        }
+      },
+      {
+        "node": {
+          "nodeIndex": 213030,
+          "name": "system / Context",
+          "className": "system / Context",
+          "edgesCount": 5,
+          "retainedSize": 1294238152,
+          "selfSize": 56,
+          "id": 71011
+        },
+        "edge": {
+          "edgeIndex": 457395,
+          "string": "->originalThing"
+        }
+      },
+      {
+        "node": {
+          "nodeIndex": 213012,
+          "name": "Object",
+          "className": "Object",
+          "edgesCount": 4,
+          "retainedSize": 1294238096,
+          "selfSize": 40,
+          "id": 71005
+        },
+        "edge": {
+          "edgeIndex": 457365,
+          "string": ".someMethod"
+        }
+      },
+      {
+        "node": {
+          "nodeIndex": 213024,
+          "name": "someMethod",
+          "className": "(closure)",
+          "edgesCount": 6,
+          "retainedSize": 1293238032,
+          "selfSize": 64,
+          "id": 71009
+        },
+        "edge": {
+          "edgeIndex": 457386,
+          "string": "{context}"
+        }
+      },
+      {
+        "node": {
+          "nodeIndex": 213006,
+          "name": "system / Context",
+          "className": "system / Context",
+          "edgesCount": 5,
+          "retainedSize": 1293237968,
+          "selfSize": 56,
+          "id": 71003
+        },
+        "edge": {
+          "edgeIndex": 457347,
+          "string": "->originalThing"
+        }
+      },
+      {
+        "node": {
+          "nodeIndex": 212988,
+          "name": "Object",
+          "className": "Object",
+          "edgesCount": 4,
+          "retainedSize": 1293237912,
+          "selfSize": 40,
+          "id": 70997
+        },
+        "edge": null
+      }
+    ],
+    "suspect": 0,
+    "accumulationPoint": 20,
+    "reachedMaxDepth": true
+  }
+]

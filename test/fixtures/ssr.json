@@ -1,0 +1,67 @@
+[
+  {
+    "current": 3,
+    "path": [
+      {
+        "node": {
+          "nodeIndex": 113274,
+          "name": "system / Context",
+          "className": "system / Context",
+          "edgesCount": 10,
+          "retainedSize": 2481352,
+          "selfSize": 104,
+          "id": 37759
+        },
+        "edge": {
+          "edgeIndex": 276057,
+          "string": "->componentMap"
+        }
+      },
+      {
+        "node": {
+          "nodeIndex": 113514,
+          "name": "Map",
+          "className": "Map",
+          "edgesCount": 3,
+          "retainedSize": 2469656,
+          "selfSize": 32,
+          "id": 37839
+        },
+        "edge": {
+          "edgeIndex": 276948,
+          "string": "{table}"
+        }
+      },
+      {
+        "node": {
+          "nodeIndex": 113520,
+          "name": "",
+          "className": "(array)",
+          "edgesCount": 7359,
+          "retainedSize": 2469624,
+          "selfSize": 114728,
+          "id": 37841
+        },
+        "edge": {
+          "edgeIndex": 276960,
+          "string": "{2052}"
+        }
+      },
+      {
+        "node": {
+          "nodeIndex": 446442,
+          "name": "Component",
+          "className": "Component",
+          "edgesCount": 4,
+          "retainedSize": 600,
+          "selfSize": 40,
+          "id": 148815
+        },
+        "edge": null
+      }
+    ],
+    "suspect": 0,
+    "accumulationPoint": 2,
+    "reachedMaxDepth": false
+  }
+]

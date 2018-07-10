@@ -1,0 +1,67 @@
+[
+  {
+    "current": 3,
+    "path": [
+      {
+        "node": {
+          "nodeIndex": 3252,
+          "name": "system / Context",
+          "className": "system / Context",
+          "edgesCount": 5,
+          "retainedSize": 10403000,
+          "selfSize": 56,
+          "id": 1085
+        },
+        "edge": {
+          "edgeIndex": 25062,
+          "string": "->result"
+        }
+      },
+      {
+        "node": {
+          "nodeIndex": 1672032,
+          "name": "Object",
+          "className": "Object",
+          "edgesCount": 3,
+          "retainedSize": 10401432,
+          "selfSize": 32,
+          "id": 557345
+        },
+        "edge": {
+          "edgeIndex": 2791830,
+          "string": ".leakedArray"
+        }
+      },
+      {
+        "node": {
+          "nodeIndex": 788160,
+          "name": "Array",
+          "className": "Array",
+          "edgesCount": 10003,
+          "retainedSize": 10401256,
+          "selfSize": 32,
+          "id": 262721
+        },
+        "edge": {
+          "edgeIndex": 1301946,
+          "string": "{elements}"
+        }
+      },
+      {
+        "node": {
+          "nodeIndex": 830922,
+          "name": "(object elements)",
+          "className": "(array)",
+          "edgesCount": 10000,
+          "retainedSize": 80016,
+          "selfSize": 80016,
+          "id": 276975
+        },
+        "edge": null
+      }
+    ],
+    "suspect": 0,
+    "accumulationPoint": 2,
+    "reachedMaxDepth": false
+  }
+]
