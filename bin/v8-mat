@@ -1,0 +1,28 @@
+#!/usr/bin/env node
+'use strict';
+
+const HeapSnapshotAnalyzer = require('../index');
+const fs = require('fs');
+
+const file = process.argv[2];
+
+if (!file) {
+  console.error(`Usage: ${process.argv[0]} ${process.argv[1]} path/to.heapsnapshot`);
+  process.exit(1);
+}
+
+function showResults(analyzer) {
+  const snapshot = analyzer.snapshot;
+  console.log('Total Heap Size: ', snapshot.totalSize);
+  const suspects = analyzer.analyze();
+  console.log(suspects);
+}
+
+const stream = fs.createReadStream(file).setEncoding('utf8');
+const analyzer = new HeapSnapshotAnalyzer();
+analyzer.loadStream(stream, (...args) => console.error(args))
+  .then(() => {
+    showResults(analyzer);
+  }, (err) => {
+    console.error(err);
+  });

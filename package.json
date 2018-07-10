@@ -3,6 +3,14 @@
   "version": "1.0.0",
   "description": "Eclipse Memory Analyzer port for V8 heap snapshots",
   "main": "index.js",
+  "bin": {
+    "v8-mat": "./bin/v8-mat"
+  },
+  "files": [
+    "src/",
+    "bin/",
+    "index.js"
+  ],
   "scripts": {
     "test": "echo \"Error: no test specified\" && exit 1"
   },

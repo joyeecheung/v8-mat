@@ -27,6 +27,17 @@
  * (INCLUDING NEGLIGENCE OR OTHERWISE) ARISING IN ANY WAY OUT OF THE USE
  * OF THIS SOFTWARE, EVEN IF ADVISED OF THE POSSIBILITY OF SUCH DAMAGE.
  */
+
+const HeapSnapshotModel = require('../heap_snapshot_model/HeapSnapshotModel');
+
+const HeapSnapshotWorker = module.exports;
+Object.assign(HeapSnapshotWorker, require('./AllocationProfile'));
+
+const Common = require('../UIString');
+
+// ------------------- mock --------------------------
+
+
 /**
  * @interface
  */
@@ -3208,9 +3219,9 @@ HeapSnapshotWorker.JSHeapSnapshotRetainerEdge = class extends HeapSnapshotWorker
   }
 };
 
-(function disableLoggingForTest() {
-  // Runtime doesn't exist because this file is loaded as a one-off
-  // file in some inspector-protocol tests.
-  if (self.Runtime && Runtime.queryParam('test'))
-    console.warn = () => undefined;
-})();
+// (function disableLoggingForTest() {
+//   // Runtime doesn't exist because this file is loaded as a one-off
+//   // file in some inspector-protocol tests.
+//   if (self.Runtime && Runtime.queryParam('test'))
+//     console.warn = () => undefined;
+// })();

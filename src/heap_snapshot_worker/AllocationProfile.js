@@ -28,6 +28,8 @@
  * OF THIS SOFTWARE, EVEN IF ADVISED OF THE POSSIBILITY OF SUCH DAMAGE.
  */
 
+const HeapSnapshotWorker = module.exports;
+const HeapSnapshotModel = require('../heap_snapshot_model/HeapSnapshotModel');
 /**
  * @unrestricted
  */
