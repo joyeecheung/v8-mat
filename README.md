@@ -1,7 +1,7 @@
 # Eclipse Memory Analyzer port for V8 heap snapshots
 
-This project implements the algorithm used by the Eclipse Memory Analyzer on V8
-heap snapshots to automatically detect leak suspects in JavaScript processes. It
+This project implements the algorithm used by the [Eclipse Memory Analyzer](https://www.eclipse.org/mat/)
+on V8 heap snapshots to automatically detect leak suspects in JavaScript processes. It
 analyzes a heap snapshot to find:
 
 1. Leak suspect: an object that retains a big chunk of memory in the heap. Due to the
