@@ -5,9 +5,10 @@ const HeapSnapshotAnalyzer = require('../index');
 const fs = require('fs');
 
 const file = process.argv[2];
+const output = process.argv[3];
 
 if (!file) {
-  console.error(`Usage: ${process.argv[0]} ${process.argv[1]} path/to.heapsnapshot`);
+  console.error(`Usage: v8-mat path/to.heapsnapshot [path/to/result.json]`);
   process.exit(1);
 }
 
@@ -48,6 +49,9 @@ function showResults(analyzer) {
     } else {
       console.log(`No accumulation point`);
     }
+  }
+  if (output) {
+    fs.writeFileSync(output, JSON.stringify(suspects, null, 2));
   }
 }
 

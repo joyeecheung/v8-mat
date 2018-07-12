@@ -1,29 +1,34 @@
 'use strict';
 
+const { JSHeapSnapshotNode, JSHeapSnapshotEdge } = require('./src/heap_snapshot_worker/HeapSnapshot');
+
 const noop = () => {};
+
+JSHeapSnapshotNode.prototype.toJSON = function() {
+  return {
+    nodeIndex: this.nodeIndex,
+    name: this.name(),
+    type: this.type(),
+    description: describeNode(this),
+    edgesCount: this.edgesCount(),
+    retainedSize: this.retainedSize(),
+    selfSize: this.selfSize(),
+    id: this.id()
+  }
+}
+
+JSHeapSnapshotEdge.prototype.toJSON = function() {
+  return {
+    type: this.type(),
+    edgeIndex: this.edgeIndex,
+    description: this.toString()
+  }
+}
 
 class LeakPathNode {
   constructor(node, edge = null) {
     this.node = node;
-    this.edge = edge;
-  }
-
-  toJSON() {
-    return {
-      node: {
-        nodeIndex: this.node.nodeIndex,
-        name: this.node.name(),
-        className: this.node.className(),
-        edgesCount: this.node.edgesCount(),
-        retainedSize: this.node.retainedSize(),
-        selfSize: this.node.selfSize(),
-        id: this.node.id()
-      },
-      edge: this.edge ? {
-        edgeIndex: this.edge.edgeIndex,
-        string: this.edge.toString()
-      } : this.edge
-    };
+    this.edge = edge ? edge.clone() : null;
   }
 }
 
@@ -47,6 +52,117 @@ class LeakPath {
   }
 }
 
+const CONTEXT_CLASS = 'system / Context';
+
+function isContextNode(node) {
+  return node.name() === CONTEXT_CLASS;
+}
+
+function findChildByEdgeName(node, name) {
+  for (let iter = node.edges(); iter.hasNext(); iter.next()) {
+    const edge = iter.edge;
+    if (edge.name() === name) {
+      return edge.node();
+    }
+  }
+  return null;
+}
+
+function isClosureNode(node) {
+  return node.type() === CLOSURE_TYPE;
+}
+
+class JSHeapSnapshotContextNode extends JSHeapSnapshotNode {
+  constructor(original) {
+    if (!isContextNode(original)) {
+      throw new Error('Not a context node');
+    }
+    super(original._snapshot, original.nodeIndex);
+  }
+
+  closure() {
+    // TODO: in V8 6.8+ the closure slot is removed.
+    // The replacement, scope_info, only contains the
+    // function name for now.
+    const result = findChildByEdgeName(this, 'closure');
+    if (result && isClosureNode(result)) {
+      return new JSHeapSnapshotClosureNode(result);
+    }
+    return null;
+  }
+
+  shared() {
+    const closure = this.closure();
+    if (!closure) { return null; }
+    return closure.shared();
+  }
+
+  functionName() {
+    const closure = this.closure();
+    if (!closure) { return ''; }
+    return closure.functionName();
+  }
+
+  functionScript() {
+    const closure = this.closure();
+    if (!closure) { return ''; }
+    return closure.functionScript();
+  }
+}
+
+const CLOSURE_TYPE = 'closure';
+
+class JSHeapSnapshotClosureNode extends JSHeapSnapshotNode {
+  constructor(original) {
+    if (!isClosureNode(original)) {
+      throw new Error(`Not a closure node: (${original.type()})`);
+    }
+    super(original._snapshot, original.nodeIndex);
+  }
+
+  shared() {
+    return findChildByEdgeName(this, 'shared');
+  }
+
+  functionName() {
+    const name = this.name();
+    return `${name ? name : '<anonymous>' }()`;
+  }
+
+  functionScript() {
+    const shared = this.shared();
+    if (!shared) { return ''; }
+    const script = findChildByEdgeName(shared, 'script');
+    return script.name();
+  }
+}
+
+function formatSize(num, precision = 4) {
+  if (num < 1024) {
+    return `${(num).toFixed(precision)}B`;
+  } else if (num < 1024 ** 2) {
+    return `${(num / 1024).toFixed(precision)}KB`;
+  } else if (num < 1024 ** 3) {
+    return `${(num / (1024 ** 2)).toFixed(precision)}MB`;
+  } else {
+    return `${(num / (1024 ** 3)).toFixed(precision)}GB`;
+  }
+}
+
+function describeNode(node) {
+  let result = `${formatSize(node.retainedSize())} ${node.name()}`;
+  if (isContextNode(node)) {
+    const context = new JSHeapSnapshotContextNode(node);
+    result += `@${node.id()}\n(context of ${context.functionName()} ${context.functionScript()})`;
+  } else if (isClosureNode(node)) {
+    const closure = new JSHeapSnapshotClosureNode(node);
+    result += `@${node.id()}\n(closure of ${closure.functionName()} ${closure.functionScript()})`;
+  } else {
+    result += `(${node.className()}) @${node.id()}`;
+  }
+  return result;
+}
+
 class SuspectRecord {
   /**
    * @param {!HeapSnapshotWorker.JSHeapSnapshotNode} suspect 
@@ -66,7 +182,7 @@ class SuspectRecord {
   }
 
   getPath() {
-    const visited = this.visited;
+    const visited = this.visited = new Set();
     const suspect = this.suspect;
     let current = suspect;
 
@@ -74,7 +190,7 @@ class SuspectRecord {
     result.suspect = 0;
     visited.add(current.id());
   
-    this.log(`${suspect.name()} (${suspect.className()}) @${suspect.id()} <--- Suspect`);
+    this.log(`${describeNode(suspect)} <--- Suspect`);
 
     let accHint = ' <--- Accumulation Point';
     if (this.accumulationPoint.reachedMaxDepth) {
@@ -92,7 +208,7 @@ class SuspectRecord {
         const { edge, child } = this.findBiggestChild(current);
         if (!child) {
           this.log('...end...');
-          return;
+          return result;
         }
         visited.add(child.id());
         result.add(edge.clone(), child);
@@ -107,7 +223,7 @@ class SuspectRecord {
       const { edge, child } = this.findBiggestChild(current);
       if (!child) {
         this.log('...end...');
-        return;
+        return result;
       }
       visited.add(child.id());
       result.add(edge.clone(), child);
@@ -141,7 +257,17 @@ class SuspectRecord {
     this.log(`  |`);
     this.log(`  | ${edge.toString()}`);
     this.log(`  v`);
-    this.log(`${child.name()} (${child.className()}) @${child.id()}${hint}`);
+    this.log(`${describeNode(child)}${hint}`);
+  }
+
+  toJSON() {
+    const originalLog = this.log;
+    this.setLog(noop);
+    const leakPath = this.getPath();
+    this.setLog(originalLog);
+    return {
+      path: leakPath
+    };
   }
 }
 

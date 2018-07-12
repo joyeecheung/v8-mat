@@ -21,7 +21,7 @@ async function assertResultMatch(t, caseName) {
   const analyzer = new HeapSnapshotAnalyzer();
   await analyzer.loadStream(stream, () => {});
 
-  const actual = raw(analyzer.analyze().map(record => record.getPath()));
+  const actual = raw(analyzer.analyze());
   const expectedFile = await readFile(fixturePath(`${caseName}.json`));
   const expected = JSON.parse(expectedFile);
 

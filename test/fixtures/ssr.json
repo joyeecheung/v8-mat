@@ -1,67 +1,76 @@
 [
   {
-    "current": 3,
-    "path": [
-      {
-        "node": {
-          "nodeIndex": 113274,
-          "name": "system / Context",
-          "className": "system / Context",
-          "edgesCount": 10,
-          "retainedSize": 2481352,
-          "selfSize": 104,
-          "id": 37759
+    "path": {
+      "current": 3,
+      "path": [
+        {
+          "node": {
+            "nodeIndex": 113274,
+            "name": "system / Context",
+            "type": "object",
+            "description": "2.3664MB system / Context@37759\n(context of run() /Users/joyee/projects/heap-snapshot-enhancement/artifacts/ssr.js)",
+            "edgesCount": 10,
+            "retainedSize": 2481352,
+            "selfSize": 104,
+            "id": 37759
+          },
+          "edge": {
+            "type": "context",
+            "edgeIndex": 276057,
+            "description": "->componentMap"
+          }
         },
-        "edge": {
-          "edgeIndex": 276057,
-          "string": "->componentMap"
+        {
+          "node": {
+            "nodeIndex": 113514,
+            "name": "Map",
+            "type": "object",
+            "description": "2.3552MB Map(Map) @37839",
+            "edgesCount": 3,
+            "retainedSize": 2469656,
+            "selfSize": 32,
+            "id": 37839
+          },
+          "edge": {
+            "type": "internal",
+            "edgeIndex": 276948,
+            "description": "{table}"
+          }
+        },
+        {
+          "node": {
+            "nodeIndex": 113520,
+            "name": "",
+            "type": "array",
+            "description": "2.3552MB ((array)) @37841",
+            "edgesCount": 7359,
+            "retainedSize": 2469624,
+            "selfSize": 114728,
+            "id": 37841
+          },
+          "edge": {
+            "type": "internal",
+            "edgeIndex": 276960,
+            "description": "{2052}"
+          }
+        },
+        {
+          "node": {
+            "nodeIndex": 446442,
+            "name": "Component",
+            "type": "object",
+            "description": "600.0000B Component(Component) @148815",
+            "edgesCount": 4,
+            "retainedSize": 600,
+            "selfSize": 40,
+            "id": 148815
+          },
+          "edge": null
         }
-      },
-      {
-        "node": {
-          "nodeIndex": 113514,
-          "name": "Map",
-          "className": "Map",
-          "edgesCount": 3,
-          "retainedSize": 2469656,
-          "selfSize": 32,
-          "id": 37839
-        },
-        "edge": {
-          "edgeIndex": 276948,
-          "string": "{table}"
-        }
-      },
-      {
-        "node": {
-          "nodeIndex": 113520,
-          "name": "",
-          "className": "(array)",
-          "edgesCount": 7359,
-          "retainedSize": 2469624,
-          "selfSize": 114728,
-          "id": 37841
-        },
-        "edge": {
-          "edgeIndex": 276960,
-          "string": "{2052}"
-        }
-      },
-      {
-        "node": {
-          "nodeIndex": 446442,
-          "name": "Component",
-          "className": "Component",
-          "edgesCount": 4,
-          "retainedSize": 600,
-          "selfSize": 40,
-          "id": 148815
-        },
-        "edge": null
-      }
-    ],
-    "suspect": 0,
-    "accumulationPoint": 2,
-    "reachedMaxDepth": false
+      ],
+      "suspect": 0,
+      "accumulationPoint": 2,
+      "reachedMaxDepth": false
+    }
   }
 ]
