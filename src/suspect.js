@@ -1,6 +1,6 @@
 'use strict';
 
-const { JSHeapSnapshotNode, JSHeapSnapshotEdge } = require('./src/heap_snapshot_worker/HeapSnapshot');
+const { JSHeapSnapshotNode, JSHeapSnapshotEdge } = require('./third_party/heap_snapshot_worker/HeapSnapshot');
 
 const noop = () => {};
 

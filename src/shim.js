@@ -1,7 +1,7 @@
 'use strict';
 
-const { HeapSnapshotLoader } = require('./src/heap_snapshot_worker/HeapSnapshotLoader');
-const { HeapSnapshotWorkerDispatcher } = require('./src/heap_snapshot_worker/HeapSnapshotWorkerDispatcher');
+const { HeapSnapshotLoader } = require('./third_party/heap_snapshot_worker/HeapSnapshotLoader');
+const { HeapSnapshotWorkerDispatcher } = require('./third_party/heap_snapshot_worker/HeapSnapshotWorkerDispatcher');
 const EventEmitter = require('events');
 
 function heapSnapshotWorkerShim(stream, debug) {

@@ -6,7 +6,7 @@ const tap = require('tap');
 const path = require('path');
 const readFile = promisify(fs.readFile);
 
-const HeapSnapshotAnalyzer = require('../index');
+const HeapSnapshotAnalyzer = require('../');
 
 function fixturePath(...args) {
   return path.join(__dirname, 'fixtures', ...args);
