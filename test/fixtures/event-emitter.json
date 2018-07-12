@@ -1,0 +1,93 @@
+[
+  {
+    "path": {
+      "current": 4,
+      "path": [
+        {
+          "node": {
+            "nodeIndex": 2688,
+            "name": "system / Context",
+            "type": "object",
+            "description": "5.1509MB system / Context@897\n(context of onFullFilled() /Users/joyee/projects/v8-mat/test/fixtures/event-emitter.js)",
+            "edgesCount": 5,
+            "retainedSize": 5401160,
+            "selfSize": 56,
+            "id": 897
+          },
+          "edge": {
+            "type": "context",
+            "edgeIndex": 18408,
+            "description": "->result"
+          }
+        },
+        {
+          "node": {
+            "nodeIndex": 933864,
+            "name": "Object",
+            "type": "object",
+            "description": "5.1482MB Object(Object) @311289",
+            "edgesCount": 3,
+            "retainedSize": 5398248,
+            "selfSize": 32,
+            "id": 311289
+          },
+          "edge": {
+            "type": "property",
+            "edgeIndex": 1618950,
+            "description": ".emitter"
+          }
+        },
+        {
+          "node": {
+            "nodeIndex": 52512,
+            "name": "EventEmitter",
+            "type": "object",
+            "description": "5.1481MB EventEmitter(EventEmitter) @17505",
+            "edgesCount": 5,
+            "retainedSize": 5398216,
+            "selfSize": 104,
+            "id": 17505
+          },
+          "edge": {
+            "type": "property",
+            "edgeIndex": 120483,
+            "description": "._events"
+          }
+        },
+        {
+          "node": {
+            "nodeIndex": 52518,
+            "name": "Object",
+            "type": "object",
+            "description": "5.1476MB Object(Object) @17507",
+            "edgesCount": 5003,
+            "retainedSize": 5397616,
+            "selfSize": 24,
+            "id": 17507
+          },
+          "edge": {
+            "type": "internal",
+            "edgeIndex": 135498,
+            "description": "{properties}"
+          }
+        },
+        {
+          "node": {
+            "nodeIndex": 88998,
+            "name": "(object properties)",
+            "type": "array",
+            "description": "192.0547KB (object properties)((array)) @29667",
+            "edgesCount": 10001,
+            "retainedSize": 196664,
+            "selfSize": 196664,
+            "id": 29667
+          },
+          "edge": null
+        }
+      ],
+      "suspect": 0,
+      "accumulationPoint": 3,
+      "reachedMaxDepth": false
+    }
+  }
+]

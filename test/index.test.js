@@ -36,6 +36,6 @@ tap.test('meteor', async function (t) {
   return assertResultMatch(t, 'meteor');
 });
 
-tap.test('closure', async function (t) {
-  return assertResultMatch(t, 'closure');
+tap.test('event-emitter', async function (t) {
+  return assertResultMatch(t, 'event-emitter');
 });
