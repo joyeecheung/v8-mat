@@ -130,10 +130,10 @@ Explanation:
   Obviously if `onFullFilled()` does not put the `result` into the scope,
   the leak will not exist since the `result` will not be referenced
   and can be garbage-collected.
-  - Notice in the output of v8-mat, the annotation beside the first arrow (edge)
-    displays the variable name `result` in the context.
-  - v8-mat also tries to extract the function and the file where the closure context
-    is created and display it in its output.
+     - Notice in the output of v8-mat, the annotation beside the first arrow (edge)
+      displays the variable name `result` in the context.
+    - v8-mat also tries to extract the function and the file where the closure context
+      is created and display it in its output.
 2. `result` has a member `.emitter` which is assigned at the end of `run`.
 3. `result.emitter` has an internal member `._events` where Node.js stores the
   listeners.
