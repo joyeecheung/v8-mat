@@ -9,7 +9,9 @@
   "files": [
     "src/",
     "bin/",
-    "index.js"
+    "index.js",
+    "shim.js",
+    "suspect.js"
   ],
   "scripts": {
     "test": "tap test/*.js"
