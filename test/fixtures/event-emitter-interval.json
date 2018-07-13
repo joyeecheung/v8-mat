@@ -1,0 +1,161 @@
+[
+  {
+    "path": {
+      "current": 8,
+      "path": [
+        {
+          "node": {
+            "nodeIndex": 3294,
+            "name": "system / Context",
+            "type": "object",
+            "description": "4.4384MB system / Context@1099\n(context of <anonymous>() timers.js)",
+            "edgesCount": 41,
+            "retainedSize": 4653956,
+            "selfSize": 368,
+            "id": 1099
+          },
+          "edge": {
+            "type": "context",
+            "edgeIndex": 25173,
+            "description": "->refedLists"
+          }
+        },
+        {
+          "node": {
+            "nodeIndex": 100902,
+            "name": "Object",
+            "type": "object",
+            "description": "4.3657MB Object(Object) @33635",
+            "edgesCount": 6,
+            "retainedSize": 4577808,
+            "selfSize": 24,
+            "id": 33635
+          },
+          "edge": {
+            "type": "element",
+            "edgeIndex": 240186,
+            "description": "[2]"
+          }
+        },
+        {
+          "node": {
+            "nodeIndex": 88590,
+            "name": "TimersList",
+            "type": "object",
+            "description": "4.3648MB TimersList(TimersList) @29531",
+            "edgesCount": 6,
+            "retainedSize": 4576784,
+            "selfSize": 128,
+            "id": 29531
+          },
+          "edge": {
+            "type": "property",
+            "edgeIndex": 206676,
+            "description": "._idleNext"
+          }
+        },
+        {
+          "node": {
+            "nodeIndex": 88584,
+            "name": "Timeout",
+            "type": "object",
+            "description": "4.3643MB Timeout(Timeout) @29529",
+            "edgesCount": 10,
+            "retainedSize": 4576352,
+            "selfSize": 176,
+            "id": 29529
+          },
+          "edge": {
+            "type": "property",
+            "edgeIndex": 206655,
+            "description": "._onTimeout"
+          }
+        },
+        {
+          "node": {
+            "nodeIndex": 88560,
+            "name": "onInterval",
+            "type": "closure",
+            "description": "4.3642MB onInterval@29521\n(closure of onInterval() /Users/joyee/projects/v8-mat/test/fixtures/event-emitter-interval.js)",
+            "edgesCount": 6,
+            "retainedSize": 4576176,
+            "selfSize": 64,
+            "id": 29521
+          },
+          "edge": {
+            "type": "internal",
+            "edgeIndex": 206457,
+            "description": "{context}"
+          }
+        },
+        {
+          "node": {
+            "nodeIndex": 88506,
+            "name": "system / Context",
+            "type": "object",
+            "description": "128.0000B system / Context@29503\n(context of run() /Users/joyee/projects/v8-mat/test/fixtures/event-emitter-interval.js)",
+            "edgesCount": 6,
+            "retainedSize": 128,
+            "selfSize": 64,
+            "id": 29503
+          },
+          "edge": {
+            "type": "context",
+            "edgeIndex": 194055,
+            "description": "->emitter"
+          }
+        },
+        {
+          "node": {
+            "nodeIndex": 88536,
+            "name": "EventEmitter",
+            "type": "object",
+            "description": "4.3388MB EventEmitter(EventEmitter) @29513",
+            "edgesCount": 4,
+            "retainedSize": 4549520,
+            "selfSize": 104,
+            "id": 29513
+          },
+          "edge": {
+            "type": "property",
+            "edgeIndex": 194163,
+            "description": "._events"
+          }
+        },
+        {
+          "node": {
+            "nodeIndex": 88542,
+            "name": "Object",
+            "type": "object",
+            "description": "4.3383MB Object(Object) @29515",
+            "edgesCount": 4063,
+            "retainedSize": 4549008,
+            "selfSize": 24,
+            "id": 29515
+          },
+          "edge": {
+            "type": "internal",
+            "edgeIndex": 206358,
+            "description": "{properties}"
+          }
+        },
+        {
+          "node": {
+            "nodeIndex": 125388,
+            "name": "(object properties)",
+            "type": "array",
+            "description": "350.6484KB (object properties)((array)) @41797",
+            "edgesCount": 8121,
+            "retainedSize": 359064,
+            "selfSize": 196664,
+            "id": 41797
+          },
+          "edge": null
+        }
+      ],
+      "suspect": 0,
+      "accumulationPoint": 7,
+      "reachedMaxDepth": false
+    }
+  }
+]

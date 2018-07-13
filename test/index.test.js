@@ -39,3 +39,7 @@ tap.test('meteor', async function (t) {
 tap.test('event-emitter', async function (t) {
   return assertResultMatch(t, 'event-emitter');
 });
+
+tap.test('event-emitter-interval', async function (t) {
+  return assertResultMatch(t, 'event-emitter-interval');
+});

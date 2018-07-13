@@ -58,12 +58,20 @@ function isContextNode(node) {
   return node.name() === CONTEXT_CLASS;
 }
 
-function findChildByEdgeName(node, name) {
+function findPairByEdgeName(node, name) {
   for (let iter = node.edges(); iter.hasNext(); iter.next()) {
     const edge = iter.edge;
     if (edge.name() === name) {
-      return edge.node();
+      return { child: edge.node(), edge: edge.clone() };
     }
+  }
+  return null;
+}
+
+function findChildByEdgeName(node, name) {
+  const pair = findPairByEdgeName(node, name);
+  if (pair) {
+    return pair.child;
   }
   return null;
 }
@@ -205,7 +213,16 @@ class SuspectRecord {
       this.log(`Accumulation Point`);
     } else {
       while (current.id() !== dest.id() && current.edgesCount() > 0) {
-        const { edge, child } = this.findBiggestChild(current);
+        let edge, child;
+        if (isClosureNode(current)) {
+          const contextPair = findPairByEdgeName(current, 'context');
+          if (contextPair) {
+            ({ edge, child } = contextPair);
+          }
+        }
+        if (!child) {
+          ({ edge, child } = this.findBiggestChild(current));
+        }
         if (!child) {
           this.log('...end...');
           return result;
