@@ -1,6 +1,6 @@
 {
   "name": "v8-mat",
-  "version": "1.0.2",
+  "version": "1.0.3",
   "description": "Eclipse Memory Analyzer port for V8 heap snapshots",
   "main": "index.js",
   "bin": {
