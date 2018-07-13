@@ -1,5 +1,8 @@
 # Automatic leak detection for V8 heap snapshots
 
+[![npm](https://img.shields.io/npm/v/v8-mat.svg?style=flat-square)](https://npmjs.org/package/v8-mat)
+[![Build Status](https://img.shields.io/travis/joyeecheung/v8-mat.svg?style=flat-square)](https://travis-ci.org/joyeecheung/v8-mat)
+
 This project implements the algorithm used by the [Eclipse Memory Analyzer](https://www.eclipse.org/mat/)
 on V8 heap snapshots to automatically detect leak suspects in JavaScript processes. It
 analyzes a heap snapshot to find:
